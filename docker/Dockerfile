@@ -1,5 +1,6 @@
 # This image provides a postgres installation from which to run backups 
-FROM centos/postgresql-13-centos7:20210722-70dc4d3
+# We use the official PostgreSQL 15.1 here (in place of CentOS and PostgreSQL 13)
+FROM postgres:15.1-alpine3.17
 
 # Change timezone to PST for convenience
 ENV TZ=PST8PDT
