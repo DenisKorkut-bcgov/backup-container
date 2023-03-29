@@ -1,6 +1,6 @@
 # This image provides a postgres installation from which to run backups 
 # We use the official PostgreSQL 15.1 here (in place of CentOS and PostgreSQL 13)
-FROM postgres:15.1-alpine3.17
+FROM postgres:15.1-bullseye
 
 # Change timezone to PST for convenience
 ENV TZ=PST8PDT
@@ -36,4 +36,4 @@ RUN echo $TZ > /etc/timezone
 USER 26
 
 # Set the default CMD.
-CMD sh /backup.sh
+CMD /bin/bash /backup.sh
