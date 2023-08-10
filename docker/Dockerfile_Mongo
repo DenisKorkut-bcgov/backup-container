@@ -1,5 +1,5 @@
 # This image provides a mongo installation from which to run backups 
-FROM bitnami/mongodb:6.0.8-debian-11-r20
+FROM mongo:6.0.8-jammy
 
 # Change timezone to PST for convenience
 ENV TZ=PST8PDT
@@ -35,4 +35,4 @@ RUN echo $TZ > /etc/timezone
 USER 26
 
 # Set the default CMD.
-CMD sh /backup.sh
+CMD /bin/bash /backup.sh
