@@ -1,5 +1,6 @@
 # This image provides a mongo installation from which to run backups 
 FROM mongo:6.0.8-jammy
+RUN apt-get -y update && apt-get -y install util-linux
 
 # Change timezone to PST for convenience
 ENV TZ=PST8PDT
@@ -29,15 +30,6 @@ RUN chmod +x /usr/bin/go-crond
 # Perform operations that require root privilages here ...
 # --------------------------------------------------------------------------------------------------------
 RUN echo $TZ > /etc/timezone
-# ========================================================================================================
-
-# ========================================================================================================
-# Create mongodb dir while privileged, otherwise mongosh fails to create and throws errors
-# --------------------------------------------------------------------------------------------------------
-RUN mkdir -p /data/db/.mongodb 
-RUN chown -R mongodb /data/db/.mongodb
-RUN chmod 0755 /data/db/.mongodb
-
 # ========================================================================================================
 
 # Important - Reset to the base image's user account.
