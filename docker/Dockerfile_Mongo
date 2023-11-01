@@ -1,6 +1,6 @@
 # This image provides a mongo installation from which to run backups 
 FROM mongo:6.0.8-jammy
-RUN apt-get -y update && apt-get -y install util-linux
+RUN apt-get -y update && apt-get -y install bsdmainutils
 
 # Change timezone to PST for convenience
 ENV TZ=PST8PDT
