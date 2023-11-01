@@ -34,7 +34,10 @@ RUN echo $TZ > /etc/timezone
 # ========================================================================================================
 # Create mongodb dir while privileged, otherwise mongosh fails to create and throws errors
 # --------------------------------------------------------------------------------------------------------
-RUN mkdir -p /data/db/.mongodb
+RUN mkdir -p /data/db/.mongodb 
+RUN chown -R mongodb /data/db/.mongodb
+RUN chmod 0755 /data/db/.mongodb
+
 # ========================================================================================================
 
 # Important - Reset to the base image's user account.
