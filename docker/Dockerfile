@@ -1,6 +1,6 @@
 # This image provides a postgres installation from which to run backups 
 # We use the official PostgreSQL 15.1 here (in place of CentOS and PostgreSQL 13)
-FROM postgres:15.1-alpine3.17
+FROM postgres:15.6-alpine3.18
 
 RUN apk add --no-cache bash
 RUN apk add --no-cache coreutils && apk add --no-cache util-linux
